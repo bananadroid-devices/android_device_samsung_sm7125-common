@@ -145,6 +145,13 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
 
+# Camera
+SOONG_CONFIG_NAMESPACES += samsung_sm7125CameraVars
+SOONG_CONFIG_samsung_sm7125CameraVars += \
+    samsung_sm7125_model
+
+SOONG_CONFIG_samsung_sm7125CameraVars_samsung_sm7125_model := $(TARGET_DEVICE)
+
 # Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
 
@@ -173,13 +180,9 @@ TARGET_ENABLE_MEDIADRM_64 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 TARGET_DISABLED_UBWC := true
-BOARD_USES_ADRENO := true
 
-# Fingerprint
-BUILD_FINGERPRINT := "samsung/a52qnsxx/qssi:12/SP1A.210812.016/A525FXXS4BVA2:user/release-keys"
-PRIVATE_BUILD_DESC := "a52qnsxx-user 12 SP1A.210812.016 A525FXXS4BVA2 release-keys"
-
-VENDOR_SECURITY_PATCH := 2022-01-01
+# Security patch
+VENDOR_SECURITY_PATCH := 2022-07-01
 
 # FM
 BOARD_HAS_QCA_FM_SOC := cherokee
@@ -199,10 +202,6 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.default
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
-
-# Treble
-BOARD_VNDK_VERSION := current
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Wifi
 BOARD_WLAN_DEVICE := qcwcn
