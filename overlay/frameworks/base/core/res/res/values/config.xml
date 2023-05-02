@@ -1407,4 +1407,10 @@
     <bool name="config_pinnerCameraApp">false</bool>
     <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">false</bool>
+
+    <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <bool name="config_supportScreenOffUdfps">true</bool>
+
+    <!-- Whether device supports in-display fingerprint -->
+    <bool name="config_supportsUdfps">true</bool>
 </resources>
